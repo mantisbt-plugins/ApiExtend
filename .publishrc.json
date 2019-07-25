@@ -8,7 +8,7 @@
         "cmd /c xcopy pages\\* build\\ApiExtend\\pages /s /i /y",
         "cmd /c copy /Y LICENSE.txt build\\ApiExtend",
         "cmd /c copy /Y ApiExtend.php build\\ApiExtend",
-        "Compress-Archive -Path build\\ApiExtend -CompressionLevel Optimal -DestinationPath build\\ApiExtend.zip",
+        "Compress-Archive -Path build\\ApiExtend -Update -CompressionLevel Optimal -DestinationPath build\\ApiExtend.zip",
         "cmd /c rmdir /S /Q build\\ApiExtend"
     ],
     "changelogFile":     "CHANGELOG.md",
