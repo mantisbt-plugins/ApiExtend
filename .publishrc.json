@@ -3,8 +3,13 @@
     "branch":            "master",
     "bugs":              "",
     "buildCommand": [
-        "cmd /c mkdir build",
-        "Compress-Archive -Path api, lang, pages, LICENSE.txt, ApiExtend.php -CompressionLevel Optimal -DestinationPath build\\ApiExtend.zip"
+        "cmd /c xcopy api\\* build\\ApiExtend\\api /s /i /y",
+        "cmd /c xcopy lang\\* build\\ApiExtend\\lang /s /i /y",
+        "cmd /c xcopy pages\\* build\\ApiExtend\\pages /s /i /y",
+        "cmd /c copy /Y LICENSE.txt build\\ApiExtend",
+        "cmd /c copy /Y ApiExtend.php build\\ApiExtend",
+        "Compress-Archive -Path build\\ApiExtend -CompressionLevel Optimal -DestinationPath build\\ApiExtend.zip",
+        "cmd /c rmdir /S /Q build\\ApiExtend"
     ],
     "changelogFile":     "CHANGELOG.md",
     "deployCommand":     "",
