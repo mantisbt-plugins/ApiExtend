@@ -4,7 +4,7 @@
     "bugs":              "",
     "buildCommand": [
         "cmd /c mkdir build",
-        "Compress-Archive -Path lang, pages, patch, LICENSE.txt, ApiExtend.php -CompressionLevel Optimal -DestinationPath build\\ApiExtend.zip"
+        "Compress-Archive -Path api, lang, pages, LICENSE.txt, ApiExtend.php -CompressionLevel Optimal -DestinationPath build\\ApiExtend.zip"
     ],
     "changelogFile":     "CHANGELOG.md",
     "deployCommand":     "",
