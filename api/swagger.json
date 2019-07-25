@@ -1,0 +1,106 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "MantisBT REST API",
+    "description": "For the sandbox to work, MantisBT must be hosted at the root folder of the host. For example: http://mantishost/ rather http://host/mantisbt.  If that is not the case, then create a host alias to map it as such or edit swagger.json to change basePath to include the mantisbt folder name.",
+    "version": "1.0.0"
+  },
+  "schemes": [
+    "http", "https"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "basePath": "/plugins/ApiExtend/api",
+  "paths": {
+    "/issues/count": {
+      "get": {
+        "summary": "Get bug counts",
+        "tags": [
+          "ApiExtend"
+        ],
+        "operationId": "bugcountGet",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The release id.",
+            "required": true,
+            "type": "number",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success with release details",
+            "schema": { "$ref": "#/definitions/CreateIssueResponse" }
+          },
+          "403": {
+            "description": "Access denied"
+          },
+          "503": {
+            "description": "Mantis Offline"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    { "Authorization": [] }
+  ],
+  "securityDefinitions": {
+    "Authorization": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "Release": {
+      "type": "object",
+      "required": [ "summary", "description", "data" ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "ProjectRef": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "EnumRef": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

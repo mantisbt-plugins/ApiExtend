@@ -1,0 +1,16 @@
+<Location /mantisbt/plugins/ApiExtend/api>
+    AllowOverride All
+    Header always set Access-Control-Allow-Origin "*"
+    Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS, DELETE, PUT"
+    Header always set Access-Control-Allow-Headers "x-requested-with, Content-Type, origin, authorization, accept, client-security-token"
+    Header always set Access-Control-Expose-Headers "Content-Security-Policy, Location"
+    Header always set Access-Control-Max-Age "600"
+    Header always set Access-Control-Allow-Credentials "true"
+    Header always set Content-Type "text/json" env=headerjs
+    Header always set X-Content-Type-Options "nosniff"
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} OPTIONS
+    RewriteRule ^(.*)$ $1 [env=headerjs:1,R=200,L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [QSA,L]
+</Location>

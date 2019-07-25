@@ -1,0 +1,60 @@
+{
+    "projectName":       "ApiExtend",
+    "branch":            "master",
+    "bugs":              "",
+    "buildCommand": [
+        "cmd /c mkdir build",
+        "Compress-Archive -Path lang, pages, patch, LICENSE.txt, ApiExtend.php -CompressionLevel Optimal -DestinationPath build\\ApiExtend.zip"
+    ],
+    "changelogFile":     "CHANGELOG.md",
+    "deployCommand":     "",
+    "distRelease":       "N",
+    "distReleasePath":   "",
+    "distDocPath":       "",
+    "dryRunVcRevert":    "Y",
+    "emailNotification": "N",
+    "emailServer":       "",
+    "emailMode":         "tls",
+    "emailPort":         465,
+    "emailRecip":        "",
+    "emailSender":       "",
+    "githubRelease":     "Y",
+    "githubAssets": [
+        "build\\ApiExtend.zip"
+    ],
+    "githubUser":        "spmeesseman",
+    "historyFile":       "",
+    "historyHdrFile":    "",
+    "historyLineLen":    80,
+    "homePage":          "",
+    "interactive":       "Y",
+    "mantisbtPlugin":    "ApiExtend.php",
+    "mantisbtRelease":   "N",
+    "mantisbtUrl":       "http://app1.spmeesseman.com/projects",
+    "mantisbtAssets": [
+        "build\\ApiExtend.zip|Zip Archive"
+    ],
+    "npmPackDist":       "N",
+    "npmRegistry":       "",
+    "npmRelease":        "N",
+    "npmScope":          "",
+    "nugetRelease":      "N",
+    "pathToDist":        "",
+    "pathtoRoot":        ".",
+    "pathtoMainRoot":    "",
+    "pathPreRoot":       "",
+    "postBuildCommand":  "",
+    "repoType":          "git",
+    "repo":              "https://github.com/spmeesseman/ApiExtend.git",
+    "skipCommit":        "N",
+    "skipDeployPush":    "N",
+    "testEmailRecip":    "spmeesseman@gmail.com",
+    "textEditor":        "notepad",
+    "vcTag":             "Y",
+    "vcTagPrefix":       "",
+    "versionFiles": [
+        
+    ],
+    "versionText":       "Version",
+    "writeLog":          "N"   
+}

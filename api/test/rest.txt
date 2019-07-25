@@ -1,0 +1,10 @@
+
+# Get count json
+
+GET https://app1.development.pjats.com/projects/plugins/ApiExtend/api/issues/count/GEMS2/open
+GET https://app1.development.pjats.com/projects/plugins/ApiExtend/api/issues/count/GEMS2/closed
+
+# Get count svg badge
+
+GET https://app1.development.pjats.com/projects/plugins/ApiExtend/api/issues/countbadge/GEMS2/open
+GET https://app1.development.pjats.com/projects/plugins/ApiExtend/api/issues/countbadge/GEMS2/closed
