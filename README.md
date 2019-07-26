@@ -43,6 +43,8 @@ The extended REST API can be authenticated in one of two ways:
 
 In either case, the token can be created in User Preferences for the user that will be used to make the requests under.
 
+In case 1, the authroization token can be sent as a GET or POST parameter as opposed to having to be sent in the header.  This allows the svg badges to be linked to from within a README file.
+
 For example:
 
     Authorization: DvhKlx9_g5dNkBEI4jqVmwAxaN9a1y3P
