@@ -3,11 +3,10 @@
 [![app-type](https://img.shields.io/badge/category-mantisbt%20plugins-blue.svg)](https://github.com/spmeesseman)
 [![app-lang](https://img.shields.io/badge/language-php-blue.svg)](https://github.com/spmeesseman)
 [![app-publisher](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-app--publisher-e10000.svg)](https://github.com/spmeesseman/app-publisher)
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 [![authors](https://img.shields.io/badge/authors-scott%20meesseman-6F02B5.svg?logo=visual%20studio%20code)](https://github.com/spmeesseman)
-[![GitHub issues open](https://img.shields.io/github/issues-raw/spmeesseman/mantisbt%2dplugins.svg?maxAge=2592000&logo=github)](https://github.com/spmeesseman/mantisbt-plugins/issues)
-[![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/spmeesseman/mantisbt%2dplugins.svg?maxAge=2592000&logo=github)](https://github.com/spmeesseman/mantisbt-plugins/issues)
+[![GitHub issues open](https://img.shields.io/github/issues-raw/spmeesseman/ApiExtend.svg?maxAge=2592000&logo=github)](https://github.com/spmeesseman/ApiExtend/issues)
+[![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/spmeesseman/ApiExtend.svg?maxAge=2592000&logo=github)](https://github.com/spmeesseman/ApiExtend/issues)
 
 - [ApiExtend MantisBT Plugin](#ApiExtend-MantisBT-Plugin)
   - [Description](#Description)
@@ -22,9 +21,18 @@ This plugin extends the MantisBT REST API.  This plugin was developed and tested
 
 ## Installation
 
-Install the plugin using the default installation procedure for a MantisBT plugin.
+Extract the release archive to the MantisBT installations plugins folder:
 
-For Apache, see the example Location directive found in api/apache2-site-config.
+    cd /var/www/mantisbt/plugins
+    wget -O ApiExtend.zip https://github.com/spmeesseman/Releases/releases/download/v1.0.0/ApiExtend.zip
+    unzip ApiExtend.zip
+    rm -f ApiExtend.zip
+
+Ensure to use the latest released version number in the download url.
+
+Install the plugin using the default installation procedure for a MantisBT plugin in `Manage -> Plugins`.
+
+For Apache configuration, see the example Location directive found in api/apache2-site-config
 
 ## REST API
 
