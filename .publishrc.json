@@ -32,7 +32,7 @@
     "historyHdrFile":    "",
     "historyLineLen":    80,
     "homePage":          "",
-    "interactive":       "Y",
+    "interactive":       "N",
     "mantisbtPlugin":    "ApiExtend.php",
     "mantisbtRelease":   "N",
     "mantisbtUrl":       "http://app1.spmeesseman.com/projects",
