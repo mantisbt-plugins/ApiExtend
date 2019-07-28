@@ -34,8 +34,9 @@
     "homePage":          "",
     "interactive":       "N",
     "mantisbtPlugin":    "ApiExtend.php",
-    "mantisbtRelease":   "N",
-    "mantisbtUrl":       "http://app1.spmeesseman.com/projects",
+    "mantisbtRelease":   "Y",
+    "mantisbtUrl":       "https://app1.spmeesseman.com/projects",
+    "mantisbtApiToken":  "${MANTIS_API_TOKEN}",
     "mantisbtAssets": [
         "build\\ApiExtend.zip|Zip Archive"
     ],
