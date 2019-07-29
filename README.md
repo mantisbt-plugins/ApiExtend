@@ -7,6 +7,8 @@
 [![authors](https://img.shields.io/badge/authors-scott%20meesseman-6F02B5.svg?logo=visual%20studio%20code)](https://github.com/spmeesseman)
 [![GitHub issues open](https://img.shields.io/github/issues-raw/spmeesseman/ApiExtend.svg?maxAge=2592000&logo=github)](https://github.com/spmeesseman/ApiExtend/issues)
 [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/spmeesseman/ApiExtend.svg?maxAge=2592000&logo=github)](https://github.com/spmeesseman/ApiExtend/issues)
+[![MantisBT version current](https://app1.spmeesseman.com/projects/plugins/ApiExtend/api/versionbadge/ApiExtend/current)](https://app1.spmeesseman.com/projects)
+[![MantisBT version next](https://app1.spmeesseman.com/projects/plugins/ApiExtend/api/versionbadge/ApiExtend/next)](https://app1.spmeesseman.com/projects)
 
 - [ApiExtend MantisBT Plugin](#ApiExtend-MantisBT-Plugin)
   - [Description](#Description)
@@ -14,6 +16,8 @@
   - [REST API](#REST-API)
     - [GET: /plugins/ApiExtend/api/issues/count/{project}/{type}](#GET-pluginsApiExtendapiissuescountprojecttype)
     - [GET: /plugins/ApiExtend/api/issues/countbadge/{project}/{type}](#GET-pluginsApiExtendapiissuescountbadgeprojecttype)
+    - [GET: /plugins/ApiExtend/api/version/{project}/{type}](#GET-pluginsApiExtendapiversionprojecttype)
+    - [GET: /plugins/ApiExtend/api/versionbadge/{project}/{type}](#GET-pluginsApiExtendapiversionbadgeprojecttype)
 
 ## Description
 
@@ -28,7 +32,7 @@ Extract the release archive to the MantisBT installations plugins folder:
     unzip ApiExtend.zip
     rm -f ApiExtend.zip
 
-Ensure to use the latest released version number in the download url.
+Ensure to use the latest released version number in the download url: [![MantisBT version current](https://app1.spmeesseman.com/projects/plugins/ApiExtend/api/versionbadge/ApiExtend/current)](https://app1.spmeesseman.com/projects)
 
 Install the plugin using the default installation procedure for a MantisBT plugin in `Manage -> Plugins`.
 
@@ -70,6 +74,28 @@ Example JSON Response Body
 Retrieves an issues count badge for open or closed issues, for use in readme files.
 
 ![badge1](res/badges.png)
+
+Where `project` is the MantisBT project name
+
+Where `type` is one of 'open' or 'closed'.
+
+### GET: /plugins/ApiExtend/api/version/{project}/{type}
+
+Retrieves the current and/or next version.
+
+Where `project` is the MantisBT project name
+
+Where `type` is one of 'open' or 'closed'.
+
+Example JSON Response Body
+
+    {
+        "version": 1.9.19
+    }
+
+### GET: /plugins/ApiExtend/api/versionbadge/{project}/{type}
+
+Retrieves a versionbadge for the current and/or next version, for use in readme files.
 
 Where `project` is the MantisBT project name
 
