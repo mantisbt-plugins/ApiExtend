@@ -15,10 +15,16 @@
         $api_token = gpc_get_string( 'api_token' );
         $issues_count = gpc_get_bool( 'issues_count' );
         $issues_countbadge = gpc_get_bool( 'issues_countbadge' );
+        $version = gpc_get_bool( 'version' );
+        $versionbadge = gpc_get_bool( 'versionbadge' );
+        $versionnexttype = gpc_get_int( 'next_version_type' );
         plugin_config_set( 'api_user', $api_user, NO_USER, $t_project_id );
         plugin_config_set( 'api_token', $api_token, NO_USER, $t_project_id );
         plugin_config_set( 'issues_count', $issues_count, NO_USER, $t_project_id );
         plugin_config_set( 'issues_countbadge', $issues_countbadge, NO_USER, $t_project_id );
+        plugin_config_set( 'version', $version, NO_USER, $t_project_id );
+        plugin_config_set( 'versionbadge', $versionbadge, NO_USER, $t_project_id );
+        plugin_config_set( 'next_version_type', $versionnexttype, NO_USER, $t_project_id );
     }
 
     if ( $t_action == 'delete' && $t_project_id != ALL_PROJECTS ) {
@@ -26,6 +32,9 @@
         plugin_config_delete( 'api_token', NO_USER, $t_project_id );
         plugin_config_delete( 'issues_count', NO_USER, $t_project_id );
         plugin_config_delete( 'issues_countbadge', NO_USER, $t_project_id );
+        plugin_config_delete( 'version', NO_USER, $t_project_id );
+        plugin_config_delete( 'versionbadge', NO_USER, $t_project_id );
+        plugin_config_delete( 'next_version_type', NO_USER, $t_project_id );
     }
 
     form_security_purge( 'plugin_ApiExtend_config_update' );

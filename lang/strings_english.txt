@@ -13,14 +13,26 @@ $s_plugin_ApiExtend_api_badge_text_issues = 'issues';
 $s_plugin_ApiExtend_api_badge_text_issues_open = 'open';
 $s_plugin_ApiExtend_api_badge_text_issues_closed = 'closed';
 
+$s_plugin_ApiExtend_api_badge_text_version = 'version';
+$s_plugin_ApiExtend_api_badge_text_version_current= 'current';
+$s_plugin_ApiExtend_api_badge_text_version_next = 'next';
+
 $s_plugin_ApiExtend_invalid_url = 'Invalid/disabled url';
 $s_plugin_ApiExtend_invalid_issues_count_url = 'Invalid issues count url';
 $s_plugin_ApiExtend_invalid_issues_count_badge_url = 'Invalid issues count badge url';
 
 /* Configuration page */
 
+$s_plugin_ApiExtend_config_section_general = 'General';
+$s_plugin_ApiExtend_config_section_issues = 'Issues Endpoints';
+$s_plugin_ApiExtend_config_section_version = 'Version Endpoints';
 $s_plugin_ApiExtend_api_user = 'API User';
 $s_plugin_ApiExtend_api_token = 'API Token';
 $s_plugin_ApiExtend_config_page_title = '%%project%% ApiExtend Configuration';
 $s_plugin_ApiExtend_config_issues_count = '/issues/count';
 $s_plugin_ApiExtend_config_issues_countbadge = '/issues/countbadge';
+$s_plugin_ApiExtend_config_version = '/version';
+$s_plugin_ApiExtend_config_versionbadge = '/versionbadge';
+$s_plugin_ApiExtend_config_next_version_type = 'Next Version Method';
+$s_plugin_ApiExtend_config_next_minor_unreleased = 'Next Minor Unreleased';
+$s_plugin_ApiExtend_config_next_unreleased = 'Next Unreleased';

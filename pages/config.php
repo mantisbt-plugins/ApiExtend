@@ -23,6 +23,7 @@ $t_collapse_block = is_collapsed($t_block_id);
 $t_block_css = $t_collapse_block ? 'collapsed' : '';
 $t_block_icon = $t_collapse_block ? 'fa-chevron-down' : 'fa-chevron-up';
 $t_fa_icon = 'fa-cogs';
+$next_version_type = plugin_config_get('next_version_type');
 
 echo '<div id="' . $t_block_id . '" class="widget-box widget-color-blue2  no-border ' . $t_block_css . '">';
 echo '  <div class="widget-header widget-header-small">';
@@ -47,6 +48,13 @@ echo '    <div class="widget-main">';
     <input type="hidden" name="project_id" value="<?php echo $t_project_id ?>" />
     <input type="hidden" name="plugin" value="releases" />
     <!--    <table class="width75" cellspacing="1"> -->
+
+    <div class="widget-box widget-color-blue2  no-border">
+    <div class="widget-header widget-header-small">
+    <h4 class="widget-title lighter"><?php echo plugin_lang_get('config_section_general') ?></h4>
+    </div>
+    </div>
+
     <table class="width100 table table-striped table-bordered table-condensed" cellspacing="1">
 
         <tr <?php echo helper_alternate_class() ?>>
@@ -66,6 +74,16 @@ echo '    <div class="widget-main">';
                 <input name="api_token" size="50" value="<?php echo plugin_config_get('api_token', '') ?>" />
             </td>
         </tr>
+                                        
+    </table>
+
+    <div class="widget-box widget-color-blue2  no-border">
+    <div class="widget-header widget-header-small">
+    <h4 class="widget-title lighter"><?php echo plugin_lang_get('config_section_issues') ?></h4>
+    </div>
+    </div>
+
+    <table class="width100 table table-striped table-bordered table-condensed" cellspacing="1">
 
         <!-- issues/count enable -->
         <tr <?php echo helper_alternate_class() ?>>
@@ -85,14 +103,57 @@ echo '    <div class="widget-main">';
                 <input type="checkbox" name="issues_countbadge" <?php if (plugin_config_get('issues_countbadge', ON) == ON) echo ' checked="checked"' ?> />
             </td>
         </tr>
-
+                                        
     </table>
 
-    <input tabindex="4" type="submit" class="button" value="<?php echo lang_get('submit_button') ?>" />
+    <div class="widget-box widget-color-blue2  no-border">
+    <div class="widget-header widget-header-small">
+    <h4 class="widget-title lighter"><?php echo plugin_lang_get('config_section_version') ?></h4>
+    </div>
+    </div>
+
+    <table class="width100 table table-striped table-bordered table-condensed" cellspacing="1">
+
+        <!-- version enable -->
+        <tr <?php echo helper_alternate_class() ?>>
+            <td class="category" width="150">
+                <?php echo plugin_lang_get('config_version'); ?>
+            </td>
+            <td>
+                <input type="checkbox" name="version" <?php if (plugin_config_get('version', ON) == ON) echo ' checked="checked"' ?> />
+            </td>
+        </tr>
+
+        <tr <?php echo helper_alternate_class() ?>>
+            <td class="category" width="150">
+                <?php echo plugin_lang_get('config_versionbadge'); ?>
+            </td>
+            <td>
+                <input type="checkbox" name="versionbadge" <?php if (plugin_config_get('versionbadge', ON) == ON) echo ' checked="checked"' ?> />
+            </td>
+        </tr>
+
+        <tr>
+            <td class="category">
+                <?php echo plugin_lang_get('config_next_version_type') ?>
+            </td>
+            <td>
+                <select name="next_version_type">
+                    <option value="0" <?php echo check_selected($next_version_type, 0); ?>><?php echo plugin_lang_get('config_next_unreleased') ?></option>
+                    <option value="1" <?php echo check_selected($next_version_type, 1); ?>><?php echo plugin_lang_get('config_next_minor_unreleased') ?></option>
+                </select>
+            </td>
+        </tr>
+                                        
+    </table>
+
+    <input tabindex="4" type="submit" class="button" value="<?php echo lang_get('submit_button') ?>" /> &nbsp;&nbsp;
+    
     <?php if ($t_project_id != ALL_PROJECTS) { ?><input type="button" class="button" value="<?php echo lang_get('revert_to_all_project') ?>" onclick="document.forms.plugins_releases.action.value='delete';document.forms.plugins_releases.submit();" /><?php } ?>
 
 </form>
 
+</div>
 </div>
 </div>
 

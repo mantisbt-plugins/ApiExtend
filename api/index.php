@@ -76,10 +76,16 @@ $routes_registered = false;
 
 plugin_push_current('ApiExtend');
 
-if (plugin_config_get("issues_count") == ON)
+if (plugin_config_get("issues_count") == ON || plugin_config_get("issues_countbadge") == ON)
 {
 	$routes_registered = true;
 	require_once($t_restlocal_dir . 'issues_count.php' );
+}
+
+if (plugin_config_get("version") == ON || plugin_config_get("versionbadge") == ON)
+{
+	$routes_registered = true;
+	require_once($t_restlocal_dir . 'version.php' );
 }
 
 if ($routes_registered == true) {
