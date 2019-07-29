@@ -102,3 +102,13 @@ Retrieves a versionbadge for the current and/or next version, for use in readme 
 Where `project` is the MantisBT project name
 
 Where `type` is one of 'open' or 'closed'.
+
+Supported GET parameters:
+
+|Parameter Name|Description|Type|Default Value|
+|-|-|-|-|
+|color|The badge color, do not prepend the hash '#'|string|0E7FBF|
+
+Example request url:
+
+    https://app1.spmeesseman.com/projects/plugins/ApiExtend/api/versionbadge/Releases/current?color=D7A54A
