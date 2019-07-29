@@ -97,6 +97,8 @@ Example JSON Response Body
 
 Retrieves a versionbadge for the current and/or next version, for use in readme files.
 
+![badge2](res/badges-version.png)
+
 Where `project` is the MantisBT project name
 
 Where `type` is one of 'open' or 'closed'.
