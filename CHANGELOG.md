@@ -1,5 +1,11 @@
 # APIEXTEND CHANGE LOG
 
+## Version 1.1.1 (July 29th, 2019)
+
+### Bug Fixes
+
+- issues count badge counts show blank instead of '0' when there are no issues
+
 ## Version 1.1.0 (July 29th, 2019)
 
 ### Build System
