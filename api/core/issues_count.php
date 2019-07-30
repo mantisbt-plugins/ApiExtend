@@ -109,12 +109,12 @@ function bugcount_base(\Slim\Http\Request $p_request, \Slim\Http\Response $p_res
 	$t_page_number = 1;
 	$t_per_page = -1;
 	$t_page_count = 1;
+	$t_bug_count = 0;
+	$t_bug_count_filtered = 0;
 
 	$t_rows = filter_get_bug_rows( $t_page_number, $t_per_page, $t_page_count, $t_bug_count, null, $t_project_id, $t_user_id, true );
 	if ($t_rows != null) 
 	{
-		$t_bug_count = 0;
-		$t_bug_count_filtered = 0;
 		$status_closed_level = config_get("bug_resolved_status_threshold");
 
 		log_event(LOG_PLUGIN, "ApiExtend: Examine bugs");
@@ -142,7 +142,7 @@ function bugcount_base(\Slim\Http\Request $p_request, \Slim\Http\Response $p_res
 	}
 	
 	$t_badge_text = plugin_lang_get("api_badge_text_issues_$p_type") . "%20" . plugin_lang_get("api_badge_text_issues");
-	$t_img_url = "https://img.shields.io/badge/$t_badge_text-$t_bug_count_filtered-$t_badge_color.svg?logo=codeigniter&logoColor=f5f5f5";
+	$t_img_url = "https://img.shields.io/badge/" . $t_badge_text . "-" . $t_bug_count_filtered . "-" . $t_badge_color . ".svg?logo=codeigniter&logoColor=f5f5f5";
 
 	return array ( 'url' => $t_img_url, 'count' => $t_bug_count_filtered);
 }
