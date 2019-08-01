@@ -3,10 +3,10 @@
 [![app-type](https://img.shields.io/badge/category-mantisbt%20plugins-blue.svg)](https://github.com/spmeesseman)
 [![app-lang](https://img.shields.io/badge/language-php-blue.svg)](https://github.com/spmeesseman)
 [![app-publisher](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-app--publisher-e10000.svg)](https://github.com/spmeesseman/app-publisher)
-[![authors](https://img.shields.io/badge/authors-scott%20meesseman-6F02B5.svg?logo=visual%20studio%20code)](https://github.com/spmeesseman)
+[![authors](https://img.shields.io/badge/authors-scott%20meesseman-6F02B5.svg?logo=visual%20studio%20code)](https://github.com/mantisbt-plugins)
 
-[![GitHub issues open](https://img.shields.io/github/issues-raw/spmeesseman/ApiExtend.svg?maxAge=2592000&logo=github)](https://github.com/spmeesseman/ApiExtend/issues)
-[![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/spmeesseman/ApiExtend.svg?maxAge=2592000&logo=github)](https://github.com/spmeesseman/ApiExtend/issues)
+[![GitHub issues open](https://img.shields.io/github/issues-raw/spmeesseman/ApiExtend.svg?maxAge=2592000&logo=github)](https://github.com/mantisbt-plugins/ApiExtend/issues)
+[![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/spmeesseman/ApiExtend.svg?maxAge=2592000&logo=github)](https://github.com/mantisbt-plugins/ApiExtend/issues)
 [![MantisBT issues open](https://app1.spmeesseman.com/projects/plugins/ApiExtend/api/issues/countbadge/ApiExtend/open)](https://app1.spmeesseman.com/projects/set_project.php?project=ApiExtend&make_default=no&ref=bug_report_page.php)
 [![MantisBT issues closed](https://app1.spmeesseman.com/projects/plugins/ApiExtend/api/issues/countbadge/ApiExtend/closed)](https://app1.spmeesseman.com/projects/set_project.php?project=ApiExtend&make_default=no&ref=bug_report_page.php)
 [![MantisBT version current](https://app1.spmeesseman.com/projects/plugins/ApiExtend/api/versionbadge/ApiExtend/current)](https://app1.spmeesseman.com/projects/set_project.php?project=ApiExtend&make_default=no&ref=plugin.php?page=Releases/releases)
@@ -30,11 +30,11 @@ This plugin extends the MantisBT REST API.  This plugin was developed and tested
 Extract the release archive to the MantisBT installations plugins folder:
 
     cd /var/www/mantisbt/plugins
-    wget -O ApiExtend.zip https://github.com/spmeesseman/Releases/releases/download/v1.0.0/ApiExtend.zip
+    wget -O ApiExtend.zip https://github.com/mantisbt-plugins/Releases/releases/download/v1.0.0/ApiExtend.zip
     unzip ApiExtend.zip
     rm -f ApiExtend.zip
 
-Ensure to use the latest released version number in the download url: [![MantisBT version current](https://app1.spmeesseman.com/projects/plugins/ApiExtend/api/versionbadge/ApiExtend/current)](https://app1.spmeesseman.com/projects) (version badge available via the [ApiExtend Plugin](https://github.com/spmeesseman/ApiExtend))
+Ensure to use the latest released version number in the download url: [![MantisBT version current](https://app1.spmeesseman.com/projects/plugins/ApiExtend/api/versionbadge/ApiExtend/current)](https://app1.spmeesseman.com/projects) (version badge available via the [ApiExtend Plugin](https://github.com/mantisbt-plugins/ApiExtend))
 
 Install the plugin using the default installation procedure for a MantisBT plugin in `Manage -> Plugins`.
 
