@@ -8,3 +8,17 @@ GET https://app1.development.pjats.com/projects/plugins/ApiExtend/api/issues/cou
 
 GET https://app1.development.pjats.com/projects/plugins/ApiExtend/api/issues/countbadge/GEMS2/open
 GET https://app1.development.pjats.com/projects/plugins/ApiExtend/api/issues/countbadge/GEMS2/closed
+
+# Get version
+
+GET https://app1.development.pjats.com/projects/plugins/ApiExtend/api/version/GEMS2/current
+GET https://app1.development.pjats.com/projects/plugins/ApiExtend/api/version/GEMS2/next
+
+# Get version svg badge
+
+GET https://app1.development.pjats.com/projects/plugins/ApiExtend/api/versionbadge/GEMS2/current
+GET https://app1.development.pjats.com/projects/plugins/ApiExtend/api/versionbadge/GEMS2/next
+
+
+
+GET https://app1.spmeesseman.com/projects/plugins/ApiExtend/api/version/ProjectPages/next
