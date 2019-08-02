@@ -1,7 +1,7 @@
 <?php
 
 # Copyright (c) 2019 Scott Meesseman
-# Licensed under the MIT License
+# Licensed under GPL3 
 
 class ApiExtendPlugin extends MantisPlugin
 {
