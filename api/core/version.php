@@ -163,7 +163,7 @@ function apiextend_version_base(\Slim\Http\Request $p_request, \Slim\Http\Respon
 	}
 	
 	$t_badge_text = plugin_lang_get("api_badge_text_version_$p_type") . "%20" . plugin_lang_get("api_badge_text_version");
-	$t_img_url = "https://img.shields.io/badge/$t_badge_text-$t_version-$t_badge_color.svg?logo=azure%20pipelines&logoColor=f5f5f5";
+	$t_img_url = "https://img.shields.io/badge/$t_badge_text-$t_version-$t_badge_color.svg?logo=azure%20pipelines&logoColor=f5f5f5&cacheSeconds=3600";
 
 	return array ( 'url' => $t_img_url, 'version' => $t_version);
 }
