@@ -1,5 +1,19 @@
 # APIEXTEND CHANGE LOG
 
+## Version 1.1.2 (August 2nd, 2019)
+
+### Build System
+
+- **app-publisher:** correct github user in publishrc
+
+### Documentation
+
+- **README:** clean up badge links, add section on submitting issues [closes #1]
+
+### Bug Fixes
+
+- GitHub camo image caching is breaking badge updates.  Add cacheSeconds parameter to query string in requests to shields.io for attempt 1.
+
 ## Version 1.1.1 (July 29th, 2019)
 
 ### Bug Fixes
