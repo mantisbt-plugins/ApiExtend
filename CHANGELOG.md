@@ -1,5 +1,11 @@
 # APIEXTEND CHANGE LOG
 
+## Version 1.1.4 (August 3rd, 2019)
+
+### Build System
+
+- **ap:** add gzip tarball to mantisbt and github release assets
+
 ## Version 1.1.3 (August 3rd, 2019)
 
 ### Features
