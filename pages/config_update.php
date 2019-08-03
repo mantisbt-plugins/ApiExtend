@@ -39,4 +39,11 @@
 
     form_security_purge( 'plugin_ApiExtend_config_update' );
 
-    print_successful_redirect(plugin_page("config", true));
+    $t_redirect_url = plugin_page('config', TRUE);
+    
+    layout_page_header( null, $t_redirect_url );
+    layout_page_begin();
+    html_operation_successful( $t_redirect_url );
+    layout_page_end();
+    
+    
