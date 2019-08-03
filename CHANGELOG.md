@@ -1,5 +1,15 @@
 # APIEXTEND CHANGE LOG
 
+## Version 1.1.3 (August 3rd, 2019)
+
+### Features
+
+- show the success redirect when saving config settings
+
+### Bug Fixes
+
+- set cache-control-max-age on issues count badges
+
 ## Version 1.1.2 (August 2nd, 2019)
 
 ### Build System
