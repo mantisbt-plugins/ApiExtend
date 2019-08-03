@@ -9,6 +9,7 @@
         "cmd /c copy /Y LICENSE.txt build\\ApiExtend",
         "cmd /c copy /Y ApiExtend.php build\\ApiExtend",
         "Compress-Archive -Path build\\ApiExtend -Update -CompressionLevel Optimal -DestinationPath build\\ApiExtend.zip",
+        "tar -czf build/ApiExtend.tgz build\\ApiExtend",
         "cmd /c rmdir /S /Q build\\ApiExtend"
     ],
     "changelogFile":     "CHANGELOG.md",
@@ -25,7 +26,8 @@
     "emailSender":       "",
     "githubRelease":     "Y",
     "githubAssets": [
-        "build\\ApiExtend.zip"
+        "build\\ApiExtend.zip",
+        "build\\ApiExtend.tgz"
     ],
     "githubUser":        "mantisbt-plugins",
     "historyFile":       "",
@@ -38,6 +40,7 @@
     "mantisbtUrl":       "https://app1.spmeesseman.com/projects",
     "mantisbtApiToken":  "${MANTIS_API_TOKEN}",
     "mantisbtAssets": [
+        "build\\ApiExtend.tgz|GZip Tarball",
         "build\\ApiExtend.zip|Zip Archive"
     ],
     "npmPackDist":       "N",
