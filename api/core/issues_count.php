@@ -109,7 +109,6 @@ function bugcount_base(\Slim\Http\Request $p_request, \Slim\Http\Response $p_res
 	$t_page_number = 1;
 	$t_per_page = -1;
 	$t_page_count = 1;
-	$t_bug_count = 0;
 	$t_bug_count_filtered = 0;
 
 	$t_rows = filter_get_bug_rows( $t_page_number, $t_per_page, $t_page_count, $t_bug_count, null, $t_project_id, $t_user_id, true );
@@ -122,8 +121,6 @@ function bugcount_base(\Slim\Http\Request $p_request, \Slim\Http\Response $p_res
 		foreach ($t_rows as $bug)
 		{
 			log_event(LOG_PLUGIN, "ApiExtend: ID: %d  Status: %s Res: %s", $bug->id, $bug->status, $bug->resolution);
-
-			$t_bug_count++;
 
 			if ($p_type == 'closed') {
 				if ($bug->status >= $status_closed_level) {
