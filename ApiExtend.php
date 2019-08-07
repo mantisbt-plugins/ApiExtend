@@ -23,9 +23,15 @@ class ApiExtendPlugin extends MantisPlugin
 
     function init() 
     {
+        $t_inc = get_include_path();
         $t_core = config_get_global('core_path');
         $t_path = config_get_global('plugin_path'). plugin_get_current() . DIRECTORY_SEPARATOR . 'core'. DIRECTORY_SEPARATOR;
-        set_include_path(get_include_path() . PATH_SEPARATOR . $t_core . PATH_SEPARATOR . $t_path);
+        if (strstr($t_inc, $t_core) == false) {
+            set_include_path($t_inc . PATH_SEPARATOR . $t_core . PATH_SEPARATOR . $t_path);
+        }
+        else {
+            set_include_path($t_inc .  PATH_SEPARATOR . $t_path);
+        }
     }
 
     function config() {
