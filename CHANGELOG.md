@@ -1,5 +1,12 @@
 # APIEXTEND CHANGE LOG
 
+## Version 1.1.5 (August 8th, 2019)
+
+### Bug Fixes
+
+- php path is being populated with multiple entries of core_path with some of spm plugins
+- tgz release package does not contain the plugin directory as the top level
+
 ## Version 1.1.4 (August 3rd, 2019)
 
 ### Build System
