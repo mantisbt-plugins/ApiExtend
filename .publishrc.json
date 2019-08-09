@@ -9,7 +9,7 @@
         "cmd /c copy /Y LICENSE.txt build\\ApiExtend",
         "cmd /c copy /Y ApiExtend.php build\\ApiExtend",
         "Compress-Archive -Path build\\ApiExtend -Update -CompressionLevel Optimal -DestinationPath build\\ApiExtend.zip",
-        "tar -czf build/ApiExtend.tgz build\\ApiExtend",
+        "tar -C build -czf build/ApiExtend.tgz ApiExtend",
         "cmd /c rmdir /S /Q build\\ApiExtend"
     ],
     "changelogFile":     "CHANGELOG.md",
