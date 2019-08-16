@@ -46,4 +46,32 @@ class ApiExtendPlugin extends MantisPlugin
         );
     }
 
+    /*
+    public function hooks() 
+    {
+		return parent::hooks() + array(
+			'EVENT_REST_API_ROUTES' => 'routes',
+		);
+    }
+    
+    public function routes( $p_event_name, $p_event_args ) 
+    {
+		$t_app = $p_event_args['app'];
+		$t_plugin = $this;
+		$t_app->group(
+			plugin_route_group(),
+			function() use ( $t_app, $t_plugin ) {
+				$t_app->delete( '/{id}/token', [$t_plugin, 'route_token_revoke'] );
+				$t_app->post( '/{id}/webhook', [$t_plugin, 'route_webhook'] );
+			}
+		);
+	}
+
+    public function route_token_revoke( $p_request, $p_response, $p_args ) 
+    {
+
+		return $p_response->withStatus( HTTP_STATUS_NO_CONTENT );
+    }
+    */
+
 }
