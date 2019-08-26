@@ -52,13 +52,31 @@ The extended REST API can be authenticated in one of two ways:
 
 In either case, the token can be created in User Preferences for the user that will be used to make the requests under.
 
-In case 1, the authroization token can be sent as a GET or POST parameter as opposed to having to be sent in the header.  This allows the svg badges to be linked to from within a README file.
+In case 1, the authorization token can be sent as a GET or POST parameter as opposed to having to be sent in the header.  This allows the svg badges to be linked to from within a README file.
 
 For example:
 
     Authorization: DvhKlx9_g5dNkBEI4jqVmwAxaN9a1y3P
 
 The following endpoints are available to automatically create/update releases with assets/files:
+
+### GET: /plugins/ApiExtend/api/issues/{project}/{type}
+
+Retrieved issues with a given set of filter key/value pairs.
+
+Where `project` is the MantisBT project name
+
+Where `type` is one of 'open', 'closed', or 'all'.
+
+Example JSON Request
+
+    GET `https://my.domain.com/mantisbt/plugins/ApiExtend/api/issues/ProjectName/all`
+    content-type: application/json
+    {
+        "filters": "[{\"property\": \"custom_field_3\",\"value\": \"u1\"},{\"property\": \"custom_field_4\",\"value\": \"u2\"}]"
+    }
+
+The filters paramenter should be url encoded and provided in the URL as a GET parameter.
 
 ### GET: /plugins/ApiExtend/api/issues/count/{project}/{type}
 
