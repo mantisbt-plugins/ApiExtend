@@ -1,5 +1,15 @@
 # APIEXTEND CHANGE LOG
 
+## Version 1.2.0 (August 25th, 2019)
+
+### Documentation
+
+- **readme:** udpate issues submit section
+
+### Features
+
+- add support for retrieving tickets using a set of specified filter property-value pairs, as opposed to the default mantis api which requires a saved filter and a filter id to be passed.  See the readme file for details.
+
 ## Version 1.1.5 (August 8th, 2019)
 
 ### Bug Fixes
