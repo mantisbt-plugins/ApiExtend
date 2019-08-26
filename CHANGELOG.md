@@ -1,5 +1,15 @@
 # APIEXTEND CHANGE LOG
 
+## Version 1.2.1 (August 25th, 2019)
+
+### Documentation
+
+- **readme:** add initial info on /issues endpoint
+
+### Refactoring
+
+- the /issues endpoint should be authenticated
+
 ## Version 1.2.0 (August 25th, 2019)
 
 ### Documentation
