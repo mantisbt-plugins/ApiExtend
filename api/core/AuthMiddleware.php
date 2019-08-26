@@ -42,10 +42,10 @@ class AuthMiddleware {
 			else 
 			{
 				$t_username = auth_anonymous_account();
-				if (!is_blank(plugin_config_get('api_user', '')) && !is_blank(plugin_config_get('api_token', ''))) 
+				if ( !is_blank( plugin_config_get( 'api_user', '' ) ) && !is_blank(plugin_config_get( 'api_token', '' ) ) ) 
 				{
-					$t_username = plugin_config_get('api_user');
-					$t_password = plugin_config_get('api_token');
+					$t_username = plugin_config_get( 'api_user' );
+					$t_password = plugin_config_get( 'api_token' );
 					$t_login_method = LOGIN_METHOD_API_TOKEN;
 				}
 				else if( !auth_anonymous_enabled() || empty( $t_username ) ) 
