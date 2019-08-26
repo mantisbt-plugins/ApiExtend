@@ -45,6 +45,16 @@ function issues_get( \Slim\Http\Request $p_request, \Slim\Http\Response $p_respo
 {
 	log_event(LOG_PLUGIN, "rest_issue_get");
 
+	#
+	# /issues should be authenticated
+	#
+	if ( plugin_config_get( 'auth_issues' ) == ON ) {
+		$t_authorization_header = $p_request->getHeaderLine( HEADER_AUTHORIZATION );
+		if ( is_blank( $t_authorization_header ) || $t_authorization_header != plugin_config_get( 'api_token' ) ) {
+			return $p_response->withStatus(HTTP_STATUS_UNAUTHORIZED, "Authorization denied.");
+		}
+	}
+
 	$t_project_id = 0;
 
 	#
@@ -165,7 +175,7 @@ function issues_get( \Slim\Http\Request $p_request, \Slim\Http\Response $p_respo
 		}
 		
 		$t_result = array( 'issues' => $t_issues );
-		
+
 		log_event(LOG_PLUGIN, "Total bug count is %d", count( $t_result ) );
 	}
 
