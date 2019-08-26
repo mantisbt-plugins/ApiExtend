@@ -82,6 +82,12 @@ if (plugin_config_get("issues_count") == ON || plugin_config_get("issues_countba
 	require_once($t_restlocal_dir . 'issues_count.php' );
 }
 
+if (plugin_config_get("issues") == ON)
+{
+	$routes_registered = true;
+	require_once($t_restlocal_dir . 'issues.php' );
+}
+
 if (plugin_config_get("version") == ON || plugin_config_get("versionbadge") == ON)
 {
 	$routes_registered = true;

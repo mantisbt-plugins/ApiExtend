@@ -28,12 +28,15 @@ $g_app->group('/issues/countbadge', function() use ($g_app)
 
 function bugcount_svg_get(\Slim\Http\Request $p_request, \Slim\Http\Response $p_response, array $p_args) 
 {
+	log_event(LOG_PLUGIN, "bugcount_svg_get");
 	$rsp = bugcount_base($p_request, $p_response, $p_args);
 	return $p_response->withRedirect($rsp['url']);
 }
 
 function bugcount_get(\Slim\Http\Request $p_request, \Slim\Http\Response $p_response, array $p_args) 
 {
+	log_event(LOG_PLUGIN, "bugcount_get");
+
 	$rsp = bugcount_base($p_request, $p_response, $p_args);
 	
 	#$p_response->write(''.$rsp['count']);
@@ -43,7 +46,7 @@ function bugcount_get(\Slim\Http\Request $p_request, \Slim\Http\Response $p_resp
 		'count' => $rsp['count']
 	);
 
-	return $p_response->withStatus(HTTP_STATUS_CREATED, "Success")->withJson($response);
+	return $p_response->withStatus(HTTP_STATUS_SUCCESS, "Success")->withJson($response);
 }
 
 function bugcount_base(\Slim\Http\Request $p_request, \Slim\Http\Response $p_response, array $p_args) 
@@ -72,7 +75,7 @@ function bugcount_base(\Slim\Http\Request $p_request, \Slim\Http\Response $p_res
 		return $p_response->withStatus(HTTP_STATUS_BAD_REQUEST, "Mandatory field 'type' is missing.");
 	} 
 	else {
-		if ($p_type != 'closed' && $p_type != 'open') {
+		if ($p_type != 'closed' && $p_type != 'open' && $p_type != 'all') {
 			return $p_response->withStatus(HTTP_STATUS_BAD_REQUEST, "The field 'type' is invalid, must be one of 'closed' or 'open'.");
 		}
 	}
@@ -84,7 +87,7 @@ function bugcount_base(\Slim\Http\Request $p_request, \Slim\Http\Response $p_res
 	#
 	$t_user_id = auth_get_current_user_id();
 	$t_current_user = user_get_username($t_user_id);
-	log_event(LOG_PLUGIN, "ApiExtend: User is %s", $t_current_user);
+	log_event(LOG_PLUGIN, "User is %s", $t_current_user);
 
 	#
 	# Parse payload
@@ -110,37 +113,79 @@ function bugcount_base(\Slim\Http\Request $p_request, \Slim\Http\Response $p_res
 	$t_per_page = -1;
 	$t_page_count = 1;
 	$t_bug_count_filtered = 0;
+	$t_status_closed_level = config_get("bug_resolved_status_threshold");
 
-	$t_rows = filter_get_bug_rows( $t_page_number, $t_per_page, $t_page_count, $t_bug_count, null, $t_project_id, $t_user_id, true );
+	if ( $p_request->getParam('filters') ) 
+	{
+		$t_req_filters = $p_request->getParam('filters');
+		if ( is_string( $t_req_filters ) ) {
+			$t_req_filters = json_decode( $t_req_filters, true );
+		}
+		foreach ($t_req_filters as $t_filter_num => $t_filter_value ) {
+			log_event(LOG_PLUGIN, "Applying requested filter (%s) %s", $t_filter_num, implode(",",$t_filter_value));
+			$_POST[$t_filter_value['property']] = $t_filter_value['value'];
+		}
+	}
+
+	$_POST['type'] = '1';
+	$_POST['view_type'] = 'simple';
+	$_POST['per_page'] = '-1';
+	$_POST['hide_status'] = '-2';
+	if ( $p_type == 'open' ) {
+		
+	}
+	else if ( $p_type == 'closed' ) {
+		
+	}
+
+	$t_filter = filter_gpc_get();
+
+	/*
+	$t_filter = filter_ensure_valid_filter( $t_filter );
+	# build a filter query, here for counting results
+	$t_filter_query = new BugFilterQuery(
+		$t_filter,
+		array(
+			'query_type' => BugFilterQuery::QUERY_TYPE_LIST,
+			'project_id' => $t_project_id,
+			'user_id' => $t_user_id,
+			'use_sticky' => true
+		)
+	);
+	$t_bug_count_filtered = $t_filter_query->get_bug_count();
+	*/
+
+	$t_rows = filter_get_bug_rows( $t_page_number, $t_per_page, $t_page_count, $t_bug_count, $t_filter, $t_project_id, $t_user_id, true );
 	if ($t_rows != null) 
 	{
-		$status_closed_level = config_get("bug_resolved_status_threshold");
-
-		log_event(LOG_PLUGIN, "ApiExtend: Examine bugs");
+		log_event(LOG_PLUGIN, "Examine bugs");
 
 		foreach ($t_rows as $bug)
 		{
-			log_event(LOG_PLUGIN, "ApiExtend: ID: %d  Status: %s Res: %s", $bug->id, $bug->status, $bug->resolution);
+			log_event(LOG_PLUGIN, "ID: %d  Status: %s Res: %s", $bug->id, $bug->status, $bug->resolution);
 
 			if ($p_type == 'closed') {
-				if ($bug->status >= $status_closed_level) {
+				if ($bug->status >= $t_status_closed_level) {
 					$t_bug_count_filtered++;
 				}
 			}
-			else {
-				if ($bug->status < $status_closed_level) {
+			else if ($p_type == 'open') {
+				if ($bug->status < $t_status_closed_level) {
 					$t_bug_count_filtered++;
 				}
+			}
+			else { // 'all'
+				$t_bug_count_filtered++;
 			}
 		}
 
-		log_event(LOG_PLUGIN, "ApiExtend: Total bug count is %d", $t_bug_count);
-		log_event(LOG_PLUGIN, "ApiExtend: Filtered bug count is %d", $t_bug_count_filtered);
+		log_event(LOG_PLUGIN, "Total bug count is %d", $t_bug_count);
+		log_event(LOG_PLUGIN, "Filtered bug count is %d", $t_bug_count_filtered);
 	}
-	
+
 	$t_badge_text = plugin_lang_get("api_badge_text_issues_$p_type") . "%20" . plugin_lang_get("api_badge_text_issues");
 	$t_img_url = "https://img.shields.io/badge/" . $t_badge_text . "-" . $t_bug_count_filtered . "-" . $t_badge_color . ".svg?logo=codeigniter&logoColor=f5f5f5&cacheSeconds=3600";
 
-	return array ( 'url' => $t_img_url, 'count' => $t_bug_count_filtered);
+	return array ( 'url' => $t_img_url, 'count' => (int)$t_bug_count_filtered);
 }
 

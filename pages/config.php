@@ -85,6 +85,15 @@ echo '    <div class="widget-main">';
 
     <table class="width100 table table-striped table-bordered table-condensed" cellspacing="1">
 
+        <tr <?php echo helper_alternate_class() ?>>
+            <td class="category" width="150">
+                <?php echo plugin_lang_get('config_issues'); ?>
+            </td>
+            <td>
+                <input type="checkbox" name="issues" <?php if (plugin_config_get('issues', ON) == ON) echo ' checked="checked"' ?> />
+            </td>
+        </tr>
+
         <!-- issues/count enable -->
         <tr <?php echo helper_alternate_class() ?>>
             <td class="category" width="150">

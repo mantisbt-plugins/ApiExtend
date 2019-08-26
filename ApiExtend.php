@@ -36,6 +36,7 @@ class ApiExtendPlugin extends MantisPlugin
 
     function config() {
         return array(
+            'issues'  => ON,
             'issues_count'  => ON,
             'issues_countbadge'  => ON,
             'version'  => ON,

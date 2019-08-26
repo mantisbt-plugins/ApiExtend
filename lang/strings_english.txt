@@ -12,6 +12,7 @@ $s_plugin_ApiExtend_description = 'REST API Extensions';
 $s_plugin_ApiExtend_api_badge_text_issues = 'issues';
 $s_plugin_ApiExtend_api_badge_text_issues_open = 'open';
 $s_plugin_ApiExtend_api_badge_text_issues_closed = 'closed';
+$s_plugin_ApiExtend_api_badge_text_issues_all = 'all';
 
 $s_plugin_ApiExtend_api_badge_text_version = 'version';
 $s_plugin_ApiExtend_api_badge_text_version_current= 'current';
@@ -29,6 +30,7 @@ $s_plugin_ApiExtend_config_section_version = 'Version Endpoints';
 $s_plugin_ApiExtend_api_user = 'API User';
 $s_plugin_ApiExtend_api_token = 'API Token';
 $s_plugin_ApiExtend_config_page_title = '%%project%% ApiExtend Configuration';
+$s_plugin_ApiExtend_config_issues = '/issues';
 $s_plugin_ApiExtend_config_issues_count = '/issues/count';
 $s_plugin_ApiExtend_config_issues_countbadge = '/issues/countbadge';
 $s_plugin_ApiExtend_config_version = '/version';

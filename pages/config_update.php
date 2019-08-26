@@ -13,6 +13,7 @@
     if ( $t_action == 'update' ) {
         $api_user = gpc_get_string( 'api_user' );
         $api_token = gpc_get_string( 'api_token' );
+        $issues = gpc_get_bool( 'issues' );
         $issues_count = gpc_get_bool( 'issues_count' );
         $issues_countbadge = gpc_get_bool( 'issues_countbadge' );
         $version = gpc_get_bool( 'version' );
@@ -20,6 +21,7 @@
         $versionnexttype = gpc_get_int( 'next_version_type' );
         plugin_config_set( 'api_user', $api_user, NO_USER, $t_project_id );
         plugin_config_set( 'api_token', $api_token, NO_USER, $t_project_id );
+        plugin_config_set( 'issues', $issues, NO_USER, $t_project_id );
         plugin_config_set( 'issues_count', $issues_count, NO_USER, $t_project_id );
         plugin_config_set( 'issues_countbadge', $issues_countbadge, NO_USER, $t_project_id );
         plugin_config_set( 'version', $version, NO_USER, $t_project_id );
