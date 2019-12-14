@@ -1,5 +1,11 @@
 # APIEXTEND CHANGE LOG
 
+## Version 1.2.2 (December 13th, 2019)
+
+### Documentation
+
+- **readme:** update info on /issues endpoint
+
 ## Version 1.2.1 (August 25th, 2019)
 
 ### Documentation
