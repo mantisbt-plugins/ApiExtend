@@ -1,5 +1,11 @@
 # APIEXTEND CHANGE LOG
 
+## Version 1.2.3 (December 14th, 2019)
+
+### Bug Fixes
+
+- **api:** using page and page_size request params when requesting issues have no effect, all rows are returned
+
 ## Version 1.2.2 (December 13th, 2019)
 
 ### Documentation
