@@ -94,10 +94,9 @@ function issues_get( \Slim\Http\Request $p_request, \Slim\Http\Response $p_respo
 	$t_current_user = user_get_username($t_user_id);
 	log_event(LOG_PLUGIN, "User is %s", $t_current_user);
 
-	$t_page_number = $p_request->getParam( 'page', 1 );
-	$t_page_size = $p_request->getParam( 'page_size', 50 );
-
-	# Get a set of issues
+	#
+	# Get project id
+	#
 	$t_project_id = (int)$p_request->getParam( 'project_id', ALL_PROJECTS );
 	if( $t_project_id != ALL_PROJECTS && !project_exists( $t_project_id ) ) 
 	{
@@ -107,6 +106,22 @@ function issues_get( \Slim\Http\Request $p_request, \Slim\Http\Response $p_respo
 	} 
 	else 
 	{
+		#
+		# Page #
+		#
+		$t_page_number = isset($p_args['page']) ? $p_args['page'] : $p_request->getParam('page');
+		if (is_blank($t_page_number)) {
+			$t_page_number = 1;
+		}
+
+		#
+		# Page Size
+		#
+		$t_page_size = isset($p_args['page_size']) ? $p_args['page_size'] : $p_request->getParam('page_size');
+		if (is_blank($t_page_size)) {
+			$t_page_size = -1;
+		}
+
 		/*
 		$t_filter_id = trim( $p_request->getParam( 'filter_id', '' ) );
 
@@ -120,8 +135,6 @@ function issues_get( \Slim\Http\Request $p_request, \Slim\Http\Response $p_respo
 		$t_result = array( 'issues' => $t_issues );
 		*/
 		$t_bug_count = 0;
-		$t_page_number = 1;
-		$t_per_page = -1;
 		$t_page_count = 1;
 		$t_bug_count_filtered = 0;
 
@@ -145,9 +158,16 @@ function issues_get( \Slim\Http\Request $p_request, \Slim\Http\Response $p_respo
 		$_POST['hide_status'] = '-2';
 
 		$t_filter = filter_gpc_get();
+		if ($p_type == 'open') {
+			$t_filter[FILTER_PROPERTY_HIDE_STATUS] = array( '0' => $t_status_closed_level );
+		}
+		else if ($p_type == 'closed') {
+			$t_filter[FILTER_PROPERTY_STATUS] = array( '0' => RESOLVED, 
+													   '1' => CLOSED );
+		}
 
 		$t_issues = array();
-		$t_rows = filter_get_bug_rows( $t_page_number, $t_per_page, $t_page_count, $t_bug_count, $t_filter, $t_project_id, $t_user_id, true );
+		$t_rows = filter_get_bug_rows( $t_page_number, $t_page_size, $t_page_count, $t_bug_count, $t_filter, $t_project_id, $t_user_id, true );
 		if ($t_rows != null) 
 		{
 			log_event(LOG_PLUGIN, "Examine bugs");
@@ -157,20 +177,7 @@ function issues_get( \Slim\Http\Request $p_request, \Slim\Http\Response $p_respo
 			foreach ($t_rows as $t_bug)
 			{
 				log_event(LOG_PLUGIN, "ID: %d  Status: %s Res: %s", $t_bug->id, $t_bug->status, $t_bug->resolution);
-
-				if ($p_type == 'closed') {
-					if ($t_bug->status >= $t_status_closed_level) {
-						$t_issues[] = mci_issue_data_as_array( $t_bug, $t_user_id, $t_lang );
-					}
-				}
-				else if ($p_type == 'open') {
-					if ($t_bug->status < $t_status_closed_level) {
-						$t_issues[] = mci_issue_data_as_array( $t_bug, $t_user_id, $t_lang );
-					}
-				}
-				else { // 'all'
-					$t_issues[] = mci_issue_data_as_array( $t_bug, $t_user_id, $t_lang );
-				}
+				$t_issues[] = mci_issue_data_as_array( $t_bug, $t_user_id, $t_lang );
 			}
 		}
 		
