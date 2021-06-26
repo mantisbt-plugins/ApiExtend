@@ -1,8 +1,5 @@
 <?php
 
-require_once('constant_api.php');
-require_once('releases_api.php');
-
 auth_reauthenticate();
 access_ensure_global_level(config_get('manage_plugin_threshold'));
 

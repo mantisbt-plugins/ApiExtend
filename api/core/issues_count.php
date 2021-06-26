@@ -2,9 +2,6 @@
 
 require_once( __DIR__ . '/../../../../vendor/erusev/parsedown/Parsedown.php');
 require_once('bug_api.php' );
-require_once('constant_api.php');
-require_once('releases_api.php');
-require_once('releases_email_api.php');
 
 $g_app->group('/issues/count', function() use ($g_app) 
 {

@@ -1,9 +1,6 @@
 <?php
 
 require_once('version_api.php' );
-require_once('constant_api.php');
-require_once('releases_api.php');
-require_once('releases_email_api.php');
 
 $g_app->group('/version', function() use ($g_app) 
 {
