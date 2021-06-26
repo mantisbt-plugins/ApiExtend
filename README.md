@@ -10,15 +10,17 @@
 [![MantisBT version current](https://app1.spmeesseman.com/projects/plugins/ApiExtend/api/versionbadge/ApiExtend/current)](https://app1.spmeesseman.com/projects/set_project.php?project=ApiExtend&make_default=no&ref=plugin.php?page=Releases/releases)
 [![MantisBT version next](https://app1.spmeesseman.com/projects/plugins/ApiExtend/api/versionbadge/ApiExtend/next)](https://app1.spmeesseman.com/projects/set_project.php?project=ApiExtend&make_default=no&ref=plugin.php?page=Releases/releases)
 
-- [ApiExtend MantisBT Plugin](#ApiExtend-MantisBT-Plugin)
-  - [Description](#Description)
-  - [Installation](#Installation)
-  - [Issues and Feature Requests](#Issues-and-Feature-Requests)
-  - [REST API](#REST-API)
-    - [GET: /plugins/ApiExtend/api/issues/count/{project}/{type}](#GET-pluginsApiExtendapiissuescountprojecttype)
-    - [GET: /plugins/ApiExtend/api/issues/countbadge/{project}/{type}](#GET-pluginsApiExtendapiissuescountbadgeprojecttype)
-    - [GET: /plugins/ApiExtend/api/version/{project}/{type}](#GET-pluginsApiExtendapiversionprojecttype)
-    - [GET: /plugins/ApiExtend/api/versionbadge/{project}/{type}](#GET-pluginsApiExtendapiversionbadgeprojecttype)
+- [ApiExtend MantisBT Plugin](#apiextend-mantisbt-plugin)
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Issues and Feature Requests](#issues-and-feature-requests)
+  - [REST API](#rest-api)
+    - [GET: /plugins/ApiExtend/api/issues/{project}/{type}](#get-pluginsapiextendapiissuesprojecttype)
+    - [GET: /plugins/ApiExtend/api/issues/count/{project}/{type}](#get-pluginsapiextendapiissuescountprojecttype)
+    - [GET: /plugins/ApiExtend/api/issues/countbadge/{project}/{type}](#get-pluginsapiextendapiissuescountbadgeprojecttype)
+    - [GET: /plugins/ApiExtend/api/version/{project}/{type}](#get-pluginsapiextendapiversionprojecttype)
+    - [GET: /plugins/ApiExtend/api/versionbadge/{project}/{type}](#get-pluginsapiextendapiversionbadgeprojecttype)
+  - [Jenkins Integration](#jenkins-integration)
 
 ## Description
 
@@ -135,3 +137,7 @@ Supported GET parameters:
 Example request url:
 
     https://app1.spmeesseman.com/projects/plugins/ApiExtend/api/versionbadge/Releases/current?color=D7A54A
+
+## Jenkins Integration
+
+Integrates with the [jenkins-mantisbt](https://github.com/spmeesseman/jenkins-manstisbt) Plugin.
