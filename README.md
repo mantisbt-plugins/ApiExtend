@@ -13,7 +13,6 @@
 - [ApiExtend MantisBT Plugin](#apiextend-mantisbt-plugin)
   - [Description](#description)
   - [Installation](#installation)
-  - [Issues and Feature Requests](#issues-and-feature-requests)
   - [REST API](#rest-api)
     - [GET: /plugins/ApiExtend/api/issues/{project}/{type}](#get-pluginsapiextendapiissuesprojecttype)
     - [GET: /plugins/ApiExtend/api/issues/count/{project}/{type}](#get-pluginsapiextendapiissuescountprojecttype)
@@ -40,10 +39,6 @@ Ensure to use the latest released version number in the download url: ![MantisBT
 Install the plugin using the default installation procedure for a MantisBT plugin in `Manage -> Plugins`.
 
 For Apache configuration, see the example Location directive found in api/apache2-site-config
-
-## Issues and Feature Requests
-
-Issues and requests should be submitted on my [MantisBT](https://app1.spmeesseman.com/projects/set_project.php?project=ApiExtend&make_default=no&ref=bug_report_page.php) site.
 
 ## REST API
 
