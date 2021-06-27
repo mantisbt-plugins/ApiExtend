@@ -1,7 +1,6 @@
 {
     "projectName":       "ApiExtend",
     "branch":            "master",
-    "bugs":              "",
     "buildCommand": [
         "cmd /c xcopy api\\* build\\ApiExtend\\api /s /i /y",
         "cmd /c xcopy lang\\* build\\ApiExtend\\lang /s /i /y",
@@ -13,58 +12,17 @@
         "cmd /c rmdir /S /Q build\\ApiExtend"
     ],
     "changelogFile":     "CHANGELOG.md",
-    "deployCommand":     "",
-    "distRelease":       "N",
-    "distReleasePath":   "",
-    "distDocPath":       "",
-    "dryRunVcRevert":    "Y",
-    "emailNotification": "N",
-    "emailServer":       "",
-    "emailMode":         "tls",
-    "emailPort":         465,
-    "emailRecip":        "",
-    "emailSender":       "",
     "githubRelease":     "Y",
     "githubAssets": [
         "build\\ApiExtend.zip",
         "build\\ApiExtend.tgz"
     ],
     "githubUser":        "mantisbt-plugins",
-    "historyFile":       "",
-    "historyHdrFile":    "",
-    "historyLineLen":    80,
-    "homePage":          "",
-    "interactive":       "N",
-    "mantisbtPlugin":    "ApiExtend.php",
-    "mantisbtRelease":   "Y",
-    "mantisbtUrl":       "https://app1.spmeesseman.com/projects",
-    "mantisbtApiToken":  "${MANTIS_API_TOKEN}",
-    "mantisbtAssets": [
-        "build\\ApiExtend.tgz|GZip Tarball",
-        "build\\ApiExtend.zip|Zip Archive"
-    ],
-    "npmPackDist":       "N",
-    "npmRegistry":       "",
-    "npmRelease":        "N",
-    "npmScope":          "",
-    "nugetRelease":      "N",
-    "pathToDist":        "",
-    "pathtoRoot":        ".",
-    "pathtoMainRoot":    "",
-    "pathPreRoot":       "",
-    "postBuildCommand":  "",
     "repoType":          "git",
     "repo":              "https://github.com/mantisbt-plugins/ApiExtend.git",
     "skipCommit":        "N",
     "skipDeployPush":    "N",
     "skipVersionEdits":  "Y",
     "testEmailRecip":    "spmeesseman@gmail.com",
-    "textEditor":        "notepad",
-    "vcTag":             "Y",
-    "vcTagPrefix":       "",
-    "versionFiles": [
-        
-    ],
-    "versionText":       "Version",
-    "writeLog":          "N"   
+    "textEditor":        "notepad"
 }
