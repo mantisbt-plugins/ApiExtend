@@ -18,10 +18,9 @@
         "build\\ApiExtend.tgz"
     ],
     "githubUser":        "mantisbt-plugins",
+    "mantisbtPlugin":    "ApiExtend.php",
     "repoType":          "git",
     "repo":              "https://github.com/mantisbt-plugins/ApiExtend.git",
-    "skipCommit":        "N",
-    "skipDeployPush":    "N",
     "skipVersionEdits":  "Y",
     "testEmailRecip":    "spmeesseman@gmail.com",
     "textEditor":        "notepad"
