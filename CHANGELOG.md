@@ -1,5 +1,16 @@
 # APIEXTEND CHANGE LOG
 
+## Version 1.2.4 (June 27th, 2021)
+
+### Documentation
+
+- **Readme:** add section link for jenkins integration
+- **Readme:** remove personal mantisbt bugs page ref
+
+### Refactoring
+
+- remove unnecessary required files
+
 ## Version 1.2.3 (December 14th, 2019)
 
 ### Bug Fixes
@@ -110,4 +121,3 @@
 ## Version 1.0.0
 
 - Initial Release
-
