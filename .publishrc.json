@@ -7,7 +7,7 @@
         "cmd /c xcopy pages\\* build\\ApiExtend\\pages /s /i /y",
         "cmd /c copy /Y LICENSE.txt build\\ApiExtend",
         "cmd /c copy /Y ApiExtend.php build\\ApiExtend",
-        "Compress-Archive -Path build\\ApiExtend -Update -CompressionLevel Optimal -DestinationPath build\\ApiExtend.zip",
+        "powershell Compress-Archive -Path build\\ApiExtend -Update -CompressionLevel Optimal -DestinationPath build\\ApiExtend.zip",
         "tar -C build -czf build/ApiExtend.tgz ApiExtend",
         "cmd /c rmdir /S /Q build\\ApiExtend"
     ],
@@ -22,6 +22,5 @@
     "repoType":          "git",
     "repo":              "https://github.com/mantisbt-plugins/ApiExtend.git",
     "skipVersionEdits":  "Y",
-    "testEmailRecip":    "spmeesseman@gmail.com",
     "textEditor":        "notepad"
 }
